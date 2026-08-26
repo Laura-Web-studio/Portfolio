@@ -579,7 +579,7 @@ export default function HomePage({ t, lang }: Props) {
             </div>
 
             <div className="aboutSignature reveal">
-              <span>Laura</span>
+              <span>Laura Buzuk</span>
               <p>FOUNDER & WEB DEVELOPER</p>
             </div>
           </div>
