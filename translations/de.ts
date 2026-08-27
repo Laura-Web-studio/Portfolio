@@ -2,6 +2,7 @@ export const de = {
   nav: {
     projects: "Projekte",
     services: "Leistungen",
+    pricing: "Preise",
     process: "Ablauf",
     about: "Über mich",
     quote: "Angebot anfragen",

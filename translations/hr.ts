@@ -1,11 +1,12 @@
 export const hr = {
-  nav: {
-    projects: "Projekti",
-    services: "Usluge",
-    process: "Suradnja",
-    about: "O meni",
-    quote: "Zatražite ponudu",
-  },
+nav: {
+  projects: "Projekti",
+  services: "Usluge",
+  pricing: "Cijene",
+  process: "Proces",
+  about: "O meni",
+  quote: "Pošalji upit",
+},
 
   hero: {
     available: "Dostupna za nove projekte",
