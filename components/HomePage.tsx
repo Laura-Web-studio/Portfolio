@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ContactForm from "./ContactForm";
+import PricingSection from "./PricingSection";
 
 
 type Translation = {
@@ -456,7 +457,7 @@ export default function HomePage({ t, lang }: Props) {
           </article>
         </div>
       </section>
-
+<PricingSection lang={lang} />
       {/* STATEMENT */}
       <section className="statement">
         <div className="statementInner reveal">

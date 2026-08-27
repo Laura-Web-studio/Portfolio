@@ -2371,3 +2371,234 @@ button {
     animation: none !important;
   }
 }
+
+/* =========================================================
+   PRICING
+   ========================================================= */
+
+.pricingSection {
+  overflow: hidden;
+}
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.pricingCard {
+  min-height: 650px;
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #e8e6e0;
+  border: 1px solid var(--line);
+}
+
+.pricingCardFeatured {
+  background: #202220;
+  color: white;
+}
+
+.pricingCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pricingTag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.7px;
+}
+
+.pricingArrow {
+  font-size: 24px;
+}
+
+.pricingMain {
+  margin-top: 75px;
+}
+
+.pricingName {
+  margin-bottom: 16px;
+
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.pricingPrice {
+  font-size: clamp(54px, 5vw, 76px);
+  line-height: 0.95;
+  letter-spacing: -4px;
+  font-weight: 500;
+}
+
+.pricingDescription {
+  max-width: 350px;
+
+  margin-top: 28px;
+
+  font-size: 13px;
+  line-height: 1.7;
+
+  color: var(--muted);
+}
+
+.pricingCardFeatured .pricingDescription {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.pricingFeatures {
+  margin-top: 45px;
+
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.pricingFeatures li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.pricingFeatures li span {
+  color: var(--accent);
+}
+
+.pricingCardFeatured .pricingFeatures li span {
+  color: #c5c9bf;
+}
+
+.pricingCta {
+  width: 100%;
+
+  margin-top: auto;
+  padding-top: 22px;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-top: 1px solid var(--line);
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pricingCardFeatured .pricingCta {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.pricingNote {
+  max-width: 850px;
+
+  margin-top: 35px;
+
+  font-size: 11px;
+  line-height: 1.7;
+
+  color: var(--muted);
+}
+
+
+/* ---------- PRICING TABLET ---------- */
+
+@media (max-width: 950px) {
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricingCard {
+    min-height: 520px;
+  }
+}
+
+
+/* ---------- PRICING MOBILE ---------- */
+
+@media (max-width: 650px) {
+
+  .pricingSection {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .pricingGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pricingCard {
+    min-height: 0;
+    padding: 22px;
+
+    border: none;
+  }
+
+  .pricingCardTop {
+    margin-bottom: 70px;
+  }
+
+  .pricingTag {
+    font-size: 8px;
+  }
+
+  .pricingArrow {
+    font-size: 23px;
+  }
+
+  .pricingMain {
+    margin-top: 0;
+  }
+
+  .pricingName {
+    margin-bottom: 13px;
+
+    font-size: 12px;
+  }
+
+  .pricingPrice {
+    font-size: 54px;
+    letter-spacing: -3px;
+  }
+
+  .pricingDescription {
+    margin-top: 22px;
+
+    max-width: 92%;
+
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .pricingFeatures {
+    margin-top: 35px;
+    gap: 11px;
+  }
+
+  .pricingFeatures li {
+    font-size: 12px;
+  }
+
+  .pricingCta {
+    margin-top: 42px;
+    padding-top: 18px;
+  }
+
+  .pricingNote {
+    margin-top: 24px;
+
+    font-size: 10px;
+    line-height: 1.65;
+  }
+}
