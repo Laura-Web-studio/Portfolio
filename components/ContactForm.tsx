@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 type ContactTranslation = {
   label: string;
@@ -25,10 +25,40 @@ type Props = {
   lang: "hr" | "en" | "de";
 };
 
+type PackageId = "" | "start" | "business" | "custom";
+
+const packageNames: Record<Exclude<PackageId, "">, string> = {
+  start: "Start",
+  business: "Business",
+  custom: "Custom",
+};
+
+const selectedPackageLabels = {
+  hr: "Odabrani paket",
+  en: "Selected package",
+  de: "Ausgewähltes Paket",
+};
+
 export default function ContactForm({ t, lang }: Props) {
   const [formStatus, setFormStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
+
+  const [selectedPackage, setSelectedPackage] =
+    useState<PackageId>("");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const packageFromUrl = params.get("package");
+
+    if (
+      packageFromUrl === "start" ||
+      packageFromUrl === "business" ||
+      packageFromUrl === "custom"
+    ) {
+      setSelectedPackage(packageFromUrl);
+    }
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -42,6 +72,7 @@ export default function ContactForm({ t, lang }: Props) {
       email: formData.get("email"),
       phone: formData.get("phone"),
       projectType: formData.get("projectType"),
+      package: formData.get("package"),
       message: formData.get("message"),
     };
 
@@ -68,9 +99,17 @@ export default function ContactForm({ t, lang }: Props) {
 
   return (
     <form className="contactForm" onSubmit={handleSubmit}>
+      {selectedPackage && (
+        <div className="selectedPackage">
+          <span>{selectedPackageLabels[lang]}</span>
+          <strong>{packageNames[selectedPackage]}</strong>
+        </div>
+      )}
+
+      <input type="hidden" name="package" value={selectedPackage} />
+
       <div className="formGroup">
         <label htmlFor="name">{t.name}</label>
-
         <input
           id="name"
           name="name"
@@ -85,7 +124,6 @@ export default function ContactForm({ t, lang }: Props) {
       <div className="formRow">
         <div className="formGroup">
           <label htmlFor="email">{t.emailAddress}</label>
-
           <input
             id="email"
             name="email"
@@ -98,7 +136,6 @@ export default function ContactForm({ t, lang }: Props) {
 
         <div className="formGroup">
           <label htmlFor="phone">{t.phoneNumber}</label>
-
           <input
             id="phone"
             name="phone"
@@ -137,7 +174,6 @@ export default function ContactForm({ t, lang }: Props) {
 
       <div className="formGroup">
         <label htmlFor="message">{t.message}</label>
-
         <textarea
           id="message"
           name="message"

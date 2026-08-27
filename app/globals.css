@@ -2602,3 +2602,156 @@ button {
     line-height: 1.65;
   }
 }
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+
+.faqList {
+  border-top: 1px solid var(--line);
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--line);
+}
+
+.faqItem summary {
+  min-height: 110px;
+  padding: 30px 0;
+
+  display: grid;
+  grid-template-columns: 70px 1fr 40px;
+  align-items: center;
+  gap: 25px;
+
+  cursor: pointer;
+  list-style: none;
+}
+
+.faqItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqIndex {
+  font-size: 11px;
+  color: var(--accent);
+}
+
+.faqQuestion {
+  font-size: clamp(22px, 2.5vw, 34px);
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+.faqPlus {
+  justify-self: end;
+
+  font-size: 28px;
+  font-weight: 300;
+
+  transition: transform 0.25s ease;
+}
+
+.faqItem[open] .faqPlus {
+  transform: rotate(45deg);
+}
+
+.faqAnswer {
+  padding:
+    0
+    65px
+    38px
+    95px;
+}
+
+.faqAnswer p {
+  max-width: 720px;
+
+  font-size: 14px;
+  line-height: 1.75;
+
+  color: var(--muted);
+}
+
+
+/* FAQ MOBILE */
+
+@media (max-width: 650px) {
+
+  .faqSection {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .faqItem summary {
+    min-height: 0;
+
+    padding: 23px 0;
+
+    grid-template-columns: 30px 1fr 24px;
+
+    gap: 10px;
+  }
+
+  .faqIndex {
+    font-size: 9px;
+  }
+
+  .faqQuestion {
+    font-size: 20px;
+    line-height: 1.15;
+    letter-spacing: -0.6px;
+  }
+
+  .faqPlus {
+    font-size: 23px;
+  }
+
+  .faqAnswer {
+    padding:
+      0
+      24px
+      25px
+      40px;
+  }
+
+  .faqAnswer p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+}
+/* SELECTED PRICING PACKAGE */
+
+.selectedPackage {
+  padding: 16px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.selectedPackage span {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.selectedPackage strong {
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+}
+
+@media (max-width: 650px) {
+  .selectedPackage {
+    padding: 14px 15px;
+  }
+}

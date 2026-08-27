@@ -1,16 +1,17 @@
 import Image from "next/image";
 import ContactForm from "./ContactForm";
 import PricingSection from "./PricingSection";
-
+import FaqSection from "./FaqSection";
 
 type Translation = {
   nav: {
-    projects: string;
-    services: string;
-    process: string;
-    about: string;
-    quote: string;
-  };
+  projects: string;
+  services: string;
+  pricing: string;
+  process: string;
+  about: string;
+  quote: string;
+};
 
   hero: {
     available: string;
@@ -138,11 +139,12 @@ export default function HomePage({ t, lang }: Props) {
         </a>
 
         <div className="navLinks">
-          <a href="#projects">{t.nav.projects}</a>
-          <a href="#services">{t.nav.services}</a>
-          <a href="#process">{t.nav.process}</a>
-          <a href="#about">{t.nav.about}</a>
-        </div>
+  <a href="#projects">{t.nav.projects}</a>
+  <a href="#services">{t.nav.services}</a>
+  <a href="#pricing">{t.nav.pricing}</a>
+  <a href="#process">{t.nav.process}</a>
+  <a href="#about">{t.nav.about}</a>
+</div>
 
         <a href="#contact" className="navCta">
           {t.nav.quote}
@@ -475,7 +477,7 @@ export default function HomePage({ t, lang }: Props) {
       <section className="section process" id="process">
         <div className="processIntro reveal">
           <div>
-            <p className="sectionNumber">03</p>
+            <p className="sectionNumber">04</p>
             <p className="sectionLabel">{t.process.label}</p>
           </div>
 
@@ -513,7 +515,7 @@ export default function HomePage({ t, lang }: Props) {
       <section className="section about" id="about">
         <div className="aboutLayout">
           <div className="aboutLabel reveal">
-            <p className="sectionNumber">04</p>
+            <p className="sectionNumber">05</p>
             <p className="sectionLabel">{t.about.label}</p>
           </div>
 
@@ -536,6 +538,7 @@ export default function HomePage({ t, lang }: Props) {
         </div>
       </section>
 
+      <FaqSection lang={lang} />
       {/* KONTAKT */}
       <section className="contact" id="contact">
         <div className="contactInner reveal">

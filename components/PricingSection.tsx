@@ -10,12 +10,11 @@ const content = {
     label: "INVESTICIJA",
     title1: "Odaberite opseg koji",
     title2: "odgovara vašem poslu.",
-
     from: "OD",
     popular: "NAJČEŠĆI ODABIR",
     custom: "INDIVIDUALNA PONUDA",
-
     start: {
+      id: "start",
       name: "Start",
       price: "390 €",
       description:
@@ -29,8 +28,8 @@ const content = {
         "2 kruga izmjena",
       ],
     },
-
     business: {
+      id: "business",
       name: "Business",
       price: "690 €",
       description:
@@ -45,8 +44,8 @@ const content = {
         "2 kruga izmjena",
       ],
     },
-
     customPlan: {
+      id: "custom",
       name: "Custom",
       price: "990 €+",
       description:
@@ -60,7 +59,6 @@ const content = {
         "Mogućnost daljnjeg održavanja",
       ],
     },
-
     cta: "Pošalji upit",
     note:
       "Prikazane cijene su početne. Konačna ponuda ovisi o opsegu projekta i željenim funkcionalnostima. Domena, hosting i eventualne plaćene licence nisu uključeni osim ako se drugačije dogovori.",
@@ -71,12 +69,11 @@ const content = {
     label: "INVESTMENT",
     title1: "Choose the scope that",
     title2: "fits your business.",
-
     from: "FROM",
     popular: "MOST POPULAR",
     custom: "CUSTOM QUOTE",
-
     start: {
+      id: "start",
       name: "Start",
       price: "€390",
       description:
@@ -90,8 +87,8 @@ const content = {
         "2 revision rounds",
       ],
     },
-
     business: {
+      id: "business",
       name: "Business",
       price: "€690",
       description:
@@ -106,8 +103,8 @@ const content = {
         "2 revision rounds",
       ],
     },
-
     customPlan: {
+      id: "custom",
       name: "Custom",
       price: "€990+",
       description:
@@ -121,7 +118,6 @@ const content = {
         "Optional ongoing maintenance",
       ],
     },
-
     cta: "Send enquiry",
     note:
       "Prices shown are starting prices. The final quote depends on project scope and required functionality. Domain, hosting and paid third-party licences are not included unless agreed otherwise.",
@@ -132,12 +128,11 @@ const content = {
     label: "INVESTITION",
     title1: "Wählen Sie den Umfang,",
     title2: "der zu Ihrem Unternehmen passt.",
-
     from: "AB",
     popular: "BELIEBTESTE WAHL",
     custom: "INDIVIDUELLES ANGEBOT",
-
     start: {
+      id: "start",
       name: "Start",
       price: "390 €",
       description:
@@ -151,8 +146,8 @@ const content = {
         "2 Korrekturrunden",
       ],
     },
-
     business: {
+      id: "business",
       name: "Business",
       price: "690 €",
       description:
@@ -167,8 +162,8 @@ const content = {
         "2 Korrekturrunden",
       ],
     },
-
     customPlan: {
+      id: "custom",
       name: "Custom",
       price: "990 €+",
       description:
@@ -182,7 +177,6 @@ const content = {
         "Optionale laufende Wartung",
       ],
     },
-
     cta: "Anfrage senden",
     note:
       "Die angegebenen Preise sind Startpreise. Das endgültige Angebot richtet sich nach Projektumfang und gewünschten Funktionen. Domain, Hosting und kostenpflichtige Lizenzen sind nicht enthalten, sofern nichts anderes vereinbart wurde.",
@@ -193,21 +187,9 @@ export default function PricingSection({ lang }: Props) {
   const t = content[lang];
 
   const plans = [
-    {
-      ...t.start,
-      tag: t.from,
-      className: "pricingCard",
-    },
-    {
-      ...t.business,
-      tag: t.popular,
-      className: "pricingCard pricingCardFeatured",
-    },
-    {
-      ...t.customPlan,
-      tag: t.custom,
-      className: "pricingCard",
-    },
+    { ...t.start, tag: t.from, className: "pricingCard" },
+    { ...t.business, tag: t.popular, className: "pricingCard pricingCardFeatured" },
+    { ...t.customPlan, tag: t.custom, className: "pricingCard" },
   ];
 
   return (
@@ -248,7 +230,10 @@ export default function PricingSection({ lang }: Props) {
               ))}
             </ul>
 
-            <a href="#contact" className="pricingCta">
+            <a
+              href={`?package=${plan.id}#contact`}
+              className="pricingCta"
+            >
               {t.cta}
               <span>↗</span>
             </a>
