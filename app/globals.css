@@ -2338,3 +2338,36 @@ button {
     font-size: 10px;
   }
 }
+/* HERO IMAGE PERFORMANCE */
+
+.heroWithBackground {
+  background-image: none;
+}
+
+.heroPhoto {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 650px) {
+  .heroPhoto {
+    object-position: 72% center;
+  }
+}
+
+/* PERFORMANCE: show hero immediately on mobile */
+
+@media (max-width: 650px) {
+  .heroReveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
